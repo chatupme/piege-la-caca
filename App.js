@@ -17,6 +17,7 @@ import {
   useAudioRecorderState,
   RecordingPresets,
   requestRecordingPermissionsAsync,
+  setAudioModeAsync,
 } from 'expo-audio';
 
 const ALL_SOUNDS = [
@@ -127,6 +128,15 @@ export default function App() {
     }
     setCustomPreviewPlaying(false);
   };
+
+  // Le son doit se déclencher même si l'appareil est en mode silencieux
+  // (bouton physique sur iPhone/iPad), sinon le piège ne sert à rien.
+  useEffect(() => {
+    setAudioModeAsync({
+      playsInSilentMode: true,
+      interruptionMode: 'mixWithOthers',
+    }).catch((e) => console.warn('setAudioModeAsync failed:', e));
+  }, []);
 
   useEffect(() => {
     const subscription = Accelerometer.addListener((data) => {
