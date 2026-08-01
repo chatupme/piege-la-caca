@@ -335,7 +335,7 @@ export default function App() {
         <Image source={require('./assets/favicon.png')} style={styles.logo} />
         <TouchableOpacity onPress={toggleChaosPanel} activeOpacity={0.6}>
           <Text style={styles.title}>
-            <Text>💩</Text> PrankMe?!
+            <Text>😆</Text> PrankMe?!
           </Text>
         </TouchableOpacity>
       </View>
