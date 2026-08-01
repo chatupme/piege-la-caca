@@ -134,6 +134,7 @@ export default function App() {
   useEffect(() => {
     setAudioModeAsync({
       playsInSilentMode: true,
+      allowsRecording: true,
       interruptionMode: 'mixWithOthers',
     }).catch((e) => console.warn('setAudioModeAsync failed:', e));
   }, []);
@@ -334,7 +335,7 @@ export default function App() {
         <Image source={require('./assets/favicon.png')} style={styles.logo} />
         <TouchableOpacity onPress={toggleChaosPanel} activeOpacity={0.6}>
           <Text style={styles.title}>
-            <Text>💩</Text> Piège la caca
+            <Text>💩</Text> PrankMe?!
           </Text>
         </TouchableOpacity>
       </View>
